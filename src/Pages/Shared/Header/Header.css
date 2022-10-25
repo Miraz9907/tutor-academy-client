@@ -1,0 +1,28 @@
+.nav-items{
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    transition: all 0.8s  ;
+    
+}
+.nav-items:hover{
+    color: black;
+    background-color: white;
+    box-shadow: 2px 2px 8px #888888;
+}
+
+.login{
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+}
+
+.login:hover{
+    color: white;
+}
+.active{
+    background-color: red;
+}
+

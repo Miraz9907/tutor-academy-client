@@ -1,0 +1,15 @@
+.course-title{
+    border: 2px solid gray;
+    border-radius: 10px;
+    padding: 5px 0;
+    text-align: center;
+    font-weight: 600;
+    background: rgba(255,153,0,0.3);
+}
+.course-title:hover{
+    background: rgba(255,153,0,0.6);
+}
+
+.dev{
+    color: tomato;
+}
