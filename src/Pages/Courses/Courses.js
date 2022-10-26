@@ -30,8 +30,8 @@ const Courses = () => {
           </Col>
 
           <Col lg="8">
-            <h2 className="text-primary text-center text-2xl mb-3">
-              Want to become a <span className="dev">Web developer.</span>{" "}
+            <h2 className="mb-2 text-dark text-center">
+              Wants to become a <span className="text-danger">Web developer.</span>{" "}
               <span className="text-warning">Let's check out our cources</span>
             </h2>
             <div className="row g-3">
