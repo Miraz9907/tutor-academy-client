@@ -2,10 +2,11 @@ import React, { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Register = () => {
-const {createAUser} = useContext(AuthContext);
+const {createAUser, updateUser} = useContext(AuthContext);
+const navigate = useNavigate()
 
 
 
@@ -18,14 +19,15 @@ const {createAUser} = useContext(AuthContext);
     const email = form.email.value;
     const password = form.password.value;
 
-    console.log(name, photoURL, email, password);
+    // console.log(name, photoURL, email, password);
     createAUser(email, password)
     .then(result => {
     const user = result?.user;
     console.log(user);
     // setError('');
     form.reset();
-    // handleUpdateUserProfile(name, photoURl)
+    navigate('/');
+    handleUpdateUserProfile(name, photoURL)
   })
   .catch(error => {
     console.error(error);
@@ -34,6 +36,18 @@ const {createAUser} = useContext(AuthContext);
 
   
   }
+
+  const handleUpdateUserProfile = (name, photoURL) =>{
+    const profile = {
+      displayName: name,
+      photoURL: photoURL
+    }
+
+    updateUser(profile)
+    .then(()=> { })
+    .catch(e => console.error(e));
+  }
+
     return (
         <Form onSubmit={handleFromSubmit} className='w-50 mx-auto'>
         <Form.Group className="mb-3" controlId="formBasicEmail">

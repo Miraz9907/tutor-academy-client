@@ -64,12 +64,12 @@ const Header = () => {
             </Link>
           </Nav>
           <Nav>
-            <Link to="/login" className="me-2 login">
+            {/* <Link to="/login" className="me-2 login">
               Sign In
             </Link>
             <Link to="/register" className="me-2 login">
               Sign Up
-            </Link>
+            </Link> */}
             
             <Nav.Link className="mx-4 px-2 py-1 rounded ">
               {
@@ -81,8 +81,8 @@ const Header = () => {
 
                 :
                 <>
-                <Link to='/login'>Login</Link>
-                <Link to='/register'>register</Link>
+                <Link className="me-2 login" to='/login'>Login</Link>
+                <Link className="me-2 login" to='/register'>Register</Link>
                 </>
               }
               
