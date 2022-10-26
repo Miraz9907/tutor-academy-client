@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import logo from "../../../assests/images/logo.png";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Link, NavLink } from "react-router-dom";
 import "./Header.css";
+import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
+import { Image } from "react-bootstrap";
 
 const Header = () => {
+  const {user} =useContext(AuthContext)
   return (
     <Navbar
       collapseOnSelect
@@ -56,6 +59,17 @@ const Header = () => {
             </Link>
             <Link to="/register" className="me-2 login">
               Sign Up
+            </Link>
+            
+            <Link className="mx-4 px-2 py-1 rounded ">
+              {user?.displayName}
+            </Link>
+            <Link  className="mx-4 px-2 py-1 rounded">
+              {user?.photoURL? 
+              <Image style={{height: '40px'}} roundedCircle src={user.photoURL}></Image>
+              :
+              "no"
+            }
             </Link>
 
             <Link>Dark/light</Link>
