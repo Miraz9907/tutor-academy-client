@@ -7,6 +7,7 @@ import { Link, NavLink } from "react-router-dom";
 import "./Header.css";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 import { Image } from "react-bootstrap";
+import { FaUserCircle } from 'react-icons/fa';
 
 const Header = () => {
   const {user} =useContext(AuthContext)
@@ -68,7 +69,7 @@ const Header = () => {
               {user?.photoURL? 
               <Image style={{height: '40px'}} roundedCircle src={user.photoURL}></Image>
               :
-              "no"
+              <FaUserCircle className="fs-4 text-white"></FaUserCircle>
             }
             </Link>
 
