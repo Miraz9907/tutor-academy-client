@@ -3,13 +3,34 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import './Login.css'
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const {googleLogin} = useContext(AuthContext);
+  const {googleLogin, signEmailPassword, githubLogin} = useContext(AuthContext);
 
-  const googleProvider = new GoogleAuthProvider()
+  const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
+  const navigate = useNavigate()
 
+
+
+  const handleLogin = (event) =>{
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    signEmailPassword(email, password)
+    .then(result =>{
+      const user = result.user;
+      console.log(user);
+      navigate('/');
+
+    })
+    .catch(error => console.error(error))
+
+
+  }
   const handleGoogle = () =>{
     googleLogin(googleProvider)
     .then(result => {
@@ -19,9 +40,20 @@ const Login = () => {
     .catch(error =>console.error(error))
 
   }
+
+  const handleGithub = () =>{
+    githubLogin(githubProvider)
+    .then(result => {
+      const user = result.user;
+      console.log(user);
+    })
+    .catch(error =>console.error(error))
+
+  }
+
     return (
       <div className="form-design">
-        <Form className="w-50 mx-auto mt-5 border p-3">
+        <Form onSubmit={handleLogin} className="w-50 mx-auto mt-5 border p-3">
           <h2>Please Login Here!</h2>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
@@ -54,7 +86,7 @@ const Login = () => {
         >
           google
         </Button>
-        <Button variant="primary" type="submit" className="">
+        <Button onClick={handleGithub} variant="primary" type="submit" className="">
           github
         </Button>
         </div>

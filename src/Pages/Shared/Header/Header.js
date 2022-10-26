@@ -6,11 +6,20 @@ import Navbar from "react-bootstrap/Navbar";
 import { Link, NavLink } from "react-router-dom";
 import "./Header.css";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
-import { Image } from "react-bootstrap";
+import { Button, Image } from "react-bootstrap";
 import { FaUserCircle } from 'react-icons/fa';
 
 const Header = () => {
-  const {user} =useContext(AuthContext)
+  const {user, logOut} =useContext(AuthContext)
+
+  const handleSignOut = () =>{
+    logOut()
+    .then( () => {
+
+    })
+    .catch(e=>console.error(e))
+
+  }
   return (
     <Navbar
       collapseOnSelect
@@ -62,16 +71,29 @@ const Header = () => {
               Sign Up
             </Link>
             
-            <Link className="mx-4 px-2 py-1 rounded ">
-              {user?.displayName}
-            </Link>
-            <Link  className="mx-4 px-2 py-1 rounded">
+            <Nav.Link className="mx-4 px-2 py-1 rounded ">
+              {
+                user?.uid ? 
+                <>
+                {/* <span>{user?.displayName}</span> */}
+                <Button variant="light" onClick={handleSignOut}>Log Out</Button>
+                </>
+
+                :
+                <>
+                <Link to='/login'>Login</Link>
+                <Link to='/register'>register</Link>
+                </>
+              }
+              
+            </Nav.Link>
+            <Nav.Link  className="mx-4 px-2 py-1 rounded">
               {user?.photoURL? 
               <Image style={{height: '40px'}} roundedCircle src={user.photoURL}></Image>
               :
               <FaUserCircle className="fs-4 text-white"></FaUserCircle>
             }
-            </Link>
+            </Nav.Link>
 
             <Link>Dark/light</Link>
           </Nav>

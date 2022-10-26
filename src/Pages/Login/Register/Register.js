@@ -1,19 +1,49 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 import { Link } from 'react-router-dom';
 
 const Register = () => {
+const {createAUser} = useContext(AuthContext);
+
+
+
+
+  const handleFromSubmit =(event) =>{
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const photoURL = form.photoURL.value;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    console.log(name, photoURL, email, password);
+    createAUser(email, password)
+    .then(result => {
+    const user = result?.user;
+    console.log(user);
+    // setError('');
+    form.reset();
+    // handleUpdateUserProfile(name, photoURl)
+  })
+  .catch(error => {
+    console.error(error);
+    // setError(error.message);
+  });
+
+  
+  }
     return (
-        <Form className='w-50 mx-auto'>
+        <Form onSubmit={handleFromSubmit} className='w-50 mx-auto'>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Your Name</Form.Label>
-          <Form.Control name="name" type="text" placeholder="Enter Name" />
+          <Form.Control name="name" type="text" placeholder="Enter Name"  />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Photo Url</Form.Label>
-          <Form.Control name="photoURl" type="text" placeholder="photo url" />
+          <Form.Control name="photoURL" type="text" placeholder="photo url" />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
