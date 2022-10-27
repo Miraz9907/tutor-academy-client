@@ -9,7 +9,7 @@ const Courses = () => {
   return (
     <div>
       <Container>
-        <h2>Your desire courses is here.</h2>
+        <h2 className="text-center">Your desire courses is here.</h2>
         <Row className="mx-5">
           <Col lg="4" className="mt-3">
             {courses.map((course) => (
