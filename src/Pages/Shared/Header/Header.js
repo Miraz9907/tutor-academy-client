@@ -7,13 +7,13 @@ import { Link, NavLink } from "react-router-dom";
 import "./Header.css";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 import { Button, Image, } from "react-bootstrap";
-import { FaUserCircle } from 'react-icons/fa';
+import { FaUserCircle, FaMoon, FaSun } from 'react-icons/fa';
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 
 const Header = () => {
   const {user, logOut} =useContext(AuthContext)
-  const [open, setOpen] = useState();
+  const [open, setOpen] = useState(false);
 
   const handleSignOut = () =>{
     logOut()
@@ -107,7 +107,7 @@ const Header = () => {
             <Link>
             <Button onClick={handleToggle}>
               {
-                open? "close" : "open"
+                open? <FaMoon></FaMoon> : <FaSun></FaSun>
               }
 
             </Button>

@@ -37,8 +37,7 @@ const CourseDetails = () => {
                   <Card.Img variant="top" src={picture} />
                   <Card.Body>
                     <Card.Title className="fw-bolder">{courseTitle}</Card.Title>
-                    <Card.Title className="fw-bolder">{course_id}</Card.Title>
-                    <Card.Title className="fw-bolder">{id}</Card.Title>
+                   
                     <Card.Text>{introduction}</Card.Text>
                   </Card.Body>
                   <Link to={`courses/${id}`} variant="light" className=" text-center ">

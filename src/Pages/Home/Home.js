@@ -14,7 +14,7 @@ const Home = () => {
         
           <div className='w-100 p-5 d-flex flex-column justify-content-center align-items-center' style={{backgroundImage:'url("https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80")', backgroundPosition:'center center', backgroundSize: 'cover', backgroundRepeat:'no-repeat', height:'90vh'}}>
             <h2 className='header-text'><span className='text-white'>Got Stuck!</span> We are alwayes here for you.</h2>
-            <p className=' header-para'>When you face any problem about your development then just read our documentation here. May be you can find your desire solution. And our team will teach you every topics step by step</p>
+            <p className=' header-para text-warning'>When you face any problem about your development then just read our documentation here. May be you can find your desire solution. And our team will teach you every topics step by step</p>
           </div>
         </Carousel.Item>
         <Carousel.Item>
@@ -27,7 +27,7 @@ const Home = () => {
         <Carousel.Item>
         <div className='w-100 p-5 d-flex flex-column justify-content-center align-items-center' style={{backgroundImage:'url("https://images.unsplash.com/photo-1602992708529-c9fdb12905c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80")', backgroundPosition:'center center', backgroundSize: 'cover', backgroundRepeat:'no-repeat', height:'90vh'}}>
             <h2 className='header-text'>Got Opportunity to get job</h2>
-            <p className=' header-para'>When you will buy our premium couse. its high changes to get job in you area. Our job placement team will help you until you got your dream job</p>
+            <p className=' header-para text-success'>When you will buy our premium couse. its high changes to get job in you area. Our job placement team will help you until you got your dream job</p>
           </div>
 
         </Carousel.Item>
