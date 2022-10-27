@@ -2,12 +2,14 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
+import { FaArrowRight } from 'react-icons/fa';
+
 
 
 
 const Course = ({course}) => {
-    console.log(course);
-    const {picture,courseTitle } = course
+    // console.log(course);
+    const {picture,courseTitle,introduction } = course
     return (
         <div className='col-lg-4 col-md-12 col-sm-12'>
          <Card >
@@ -15,10 +17,11 @@ const Course = ({course}) => {
       <Card.Body>
         <Card.Title>{courseTitle}</Card.Title>
         <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
+          {introduction.slice(0,120)+ "..."}
         </Card.Text>
-        <Link to={`/courses/${course.id}`}><Button variant="primary">Go somewhere</Button></Link>
+        <Link to={`/courses/${course.id}`}><Button variant="info">See Course Details <FaArrowRight ></FaArrowRight></Button>
+        
+        </Link>
         
       </Card.Body>
     </Card>     

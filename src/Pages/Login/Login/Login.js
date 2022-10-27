@@ -1,17 +1,23 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import './Login.css'
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { FaGoogle, FaGithub } from 'react-icons/fa';
 
 const Login = () => {
+  const [error, setError] = useState('')
   const {googleLogin, signEmailPassword, githubLogin} = useContext(AuthContext);
+
 
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
   const navigate = useNavigate()
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || '/';
 
 
 
@@ -24,10 +30,15 @@ const Login = () => {
     .then(result =>{
       const user = result.user;
       console.log(user);
-      navigate('/');
+      form.reset();
+      setError('')
+      navigate(from, {replace:true});
 
     })
-    .catch(error => console.error(error))
+    .catch(e => {
+      console.error(e);
+      setError(e.message);
+    })
 
 
   }
@@ -75,23 +86,42 @@ const Login = () => {
             Login
           </Button>
 
-          <Form.Text className="text-danger"></Form.Text>
-        </Form>
 
-        <div className='text-center'>
+          <div className='text-center'>
         <p className="text-center">OR Sign in with</p>
         <Button
           onClick={handleGoogle}
-          variant="primary"
+          variant="light"
           type="submit"
-          className="me-4"
+          className="me-4 fs-3"
         >
-          google
+          <FaGoogle className="text-warning"></FaGoogle>
         </Button>
-        <Button onClick={handleGithub} variant="primary" type="submit" className="">
-          github
+        <Button onClick={handleGithub} variant="light" type="submit" className="fs-3">
+          <FaGithub></FaGithub>
         </Button>
+        <p><small>Want to create an account <Link to='/register'>Register</Link></small></p>
+
         </div>
+
+          <Form.Text className="text-danger">{error}</Form.Text>
+        </Form>
+
+        {/* <div className='text-center'>
+        <p className="text-center">OR Sign in with</p>
+        <Button
+          onClick={handleGoogle}
+          variant="light"
+          type="submit"
+          className="me-4 fs-3"
+        >
+          <FaGoogle className="text-warning"></FaGoogle>
+        </Button>
+        <Button onClick={handleGithub} variant="light" type="submit" className="fs-3">
+          <FaGithub></FaGithub>
+        </Button>
+        </div> */}
+        
       </div>
     );
 };

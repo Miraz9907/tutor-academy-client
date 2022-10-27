@@ -1,10 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
 
 const Register = () => {
+  const [ error, setError] = useState('');
 const {createAUser, updateUser} = useContext(AuthContext);
 const navigate = useNavigate()
 
@@ -24,14 +25,14 @@ const navigate = useNavigate()
     .then(result => {
     const user = result?.user;
     console.log(user);
-    // setError('');
+    setError('');
     form.reset();
     navigate('/');
     handleUpdateUserProfile(name, photoURL)
   })
   .catch(error => {
     console.error(error);
-    // setError(error.message);
+    setError(error.message);
   });
 
   
@@ -89,7 +90,8 @@ const navigate = useNavigate()
         <Button variant="primary" type="submit" >
           Register
         </Button>
-        <Form.Text className="text-danger"></Form.Text>
+        <Form.Text className="text-danger">{error}</Form.Text>
+        <p><small>Already have an account? <Link to='/login'>Login</Link></small></p>
       </Form>
     );
 };
