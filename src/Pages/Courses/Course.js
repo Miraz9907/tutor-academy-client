@@ -19,7 +19,7 @@ const Course = ({course}) => {
         <Card.Text>
           {introduction.slice(0,120)+ "..."}
         </Card.Text>
-        <Link to={`/courses/${course.id}`}><Button variant="info">See Course Details <FaArrowRight ></FaArrowRight></Button>
+        <Link to={`/course/${course.id}`}><Button variant="info">See Course Details <FaArrowRight ></FaArrowRight></Button>
         
         </Link>
         

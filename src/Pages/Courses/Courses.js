@@ -19,7 +19,7 @@ const Courses = () => {
               <p key={course.id} course={course} className="course-title">
                 {" "}
                 <Link
-                  to={`/courses/${course.id}`}
+                  to={`/course/${course.id}`}
                   className="text-decoration-none text-dark "
                 >
                   {" "}

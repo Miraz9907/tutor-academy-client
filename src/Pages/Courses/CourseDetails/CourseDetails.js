@@ -41,29 +41,29 @@ const CourseDetails = () => {
                     <Card.Title className="fw-bolder">{id}</Card.Title>
                     <Card.Text>{introduction}</Card.Text>
                   </Card.Body>
-                  <Link to={`coursesss/${id}`} variant="light"  className="me-2 ">
-            Go to premier
-          </Link>
+                  <Link to={`courses/${id}`} variant="light" className="me-2 text-decoration-none text-center ">
+                    Go to premium
+                  </Link>
                 </Card>
-                
               </Col>
 
               <Col lg="4">
                 <Card>
                   <Card.Img variant="top" src={author.img} />
                   <Card.Body>
-                    <Card.Title className="fw-bolder"> Author of this course: {author.name}</Card.Title>
+                    <Card.Title className="fw-bolder">
+                      {" "}
+                      Author of this course: {author.name}
+                    </Card.Title>
                     <Card.Text>Job: {author.company}</Card.Text>
-                    <Card.Text>published_date: {author.published_date}</Card.Text>
+                    <Card.Text>
+                      published_date: {author.published_date}
+                    </Card.Text>
                   </Card.Body>
                 </Card>
               </Col>
-
-              
-
             </Row>
           </Container>
-         
         </div>
       </div>
     );

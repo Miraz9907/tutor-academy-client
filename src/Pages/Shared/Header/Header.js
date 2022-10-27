@@ -8,6 +8,8 @@ import "./Header.css";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 import { Button, Image } from "react-bootstrap";
 import { FaUserCircle } from 'react-icons/fa';
+import Tippy from "@tippyjs/react";
+import "tippy.js/dist/tippy.css";
 
 const Header = () => {
   const {user, logOut} =useContext(AuthContext)
@@ -53,7 +55,7 @@ const Header = () => {
             >
               Home
             </NavLink>
-            <Link to="/courses" className="mx-4 px-2 py-1 rounded nav-items">
+            <Link to="/course" className="mx-4 px-2 py-1 rounded nav-items">
               Courses
             </Link>
             <Link to="/faq" className="mx-4 px-2 py-1 rounded nav-items">
@@ -88,8 +90,9 @@ const Header = () => {
               
             </Nav.Link>
             <Nav.Link  className="mx-4 px-2 py-1 rounded">
-              {user?.photoURL? 
+              {user?.photoURL? <Tippy content={user?.displayName}>
               <Image style={{height: '40px'}} roundedCircle src={user.photoURL}></Image>
+              </Tippy>
               :
               <FaUserCircle className="fs-4 text-white"></FaUserCircle>
             }
