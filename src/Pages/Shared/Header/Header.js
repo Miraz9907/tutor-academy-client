@@ -72,19 +72,14 @@ const Header = () => {
           </Nav>
 
           <Nav>
-            {/* <Link to="/login" className="me-2 login">
-              Sign In
-            </Link>
-            <Link to="/register" className="me-2 login">
-              Sign Up
-            </Link> */}
+            
             
             <Nav.Link className="mx-4 px-2 py-1 rounded ">
               {
                 user?.uid ? 
                 <>
-                {/* <span>{user?.displayName}</span> */}
-                <Button variant="light" onClick={handleSignOut}><Link to='/login'>Log Out</Link></Button>
+                
+                <Button variant="dark" onClick={handleSignOut}><Link className="me-2 login" to='/login'>Log Out</Link></Button>
                 </>
 
                 :

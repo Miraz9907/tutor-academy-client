@@ -11,11 +11,11 @@ const NotFound = () => {
           <h1 className="">404!</h1>
         </div>
         <div>
-          <h3 className="">Page Not Found</h3>
+          <h3 className="text-danger">Page Not Found</h3>
         </div>
         <div>
           <Link to="/">
-            <button className="">Back To Home Page</button>
+            <button className="btn btn-warning">Back To Home Page</button>
           </Link>
         </div>
       </div>

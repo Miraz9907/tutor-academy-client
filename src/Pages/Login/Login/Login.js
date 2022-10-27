@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import './Login.css'
+import './Login.css';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -47,7 +47,8 @@ const Login = () => {
     .then(result => {
       const user = result.user;
       console.log(user);
-      navigate('/');
+      // navigate('/');
+      
     })
     .catch(error =>console.error(error))
 
@@ -58,7 +59,7 @@ const Login = () => {
     .then(result => {
       const user = result.user;
       console.log(user);
-      navigate('/');
+      // navigate('/');
     })
     .catch(error =>console.error(error))
 
@@ -87,7 +88,11 @@ const Login = () => {
           </Button>
 
 
-          <div className='text-center'>
+          
+
+          <Form.Text className="text-danger">{error}</Form.Text>
+        </Form>
+        <div className='text-center'>
         <p className="text-center">OR Sign in with</p>
         <Button
           onClick={handleGoogle}
@@ -103,9 +108,6 @@ const Login = () => {
         <p><small>Want to create an account? <Link to='/register'>Register</Link></small></p>
 
         </div>
-
-          <Form.Text className="text-danger">{error}</Form.Text>
-        </Form>
 
         
         

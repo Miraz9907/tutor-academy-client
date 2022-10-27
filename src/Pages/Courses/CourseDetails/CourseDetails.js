@@ -7,7 +7,7 @@ import {useReactToPrint} from 'react-to-print';
 const CourseDetails = () => {
     const componentRef = useRef();
     const courseDetails = useLoaderData();
-    const {courseTitle, picture,title,introduction,course_id, id, author } = courseDetails
+    const {courseTitle, picture,title,introduction, id, author } = courseDetails
     // console.log(id);
     console.log(courseDetails);
 
