@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import logo from "../../../assests/images/logo.png";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -6,13 +6,14 @@ import Navbar from "react-bootstrap/Navbar";
 import { Link, NavLink } from "react-router-dom";
 import "./Header.css";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
-import { Button, Image } from "react-bootstrap";
+import { Button, Image, } from "react-bootstrap";
 import { FaUserCircle } from 'react-icons/fa';
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 
 const Header = () => {
   const {user, logOut} =useContext(AuthContext)
+  const [open, setOpen] = useState();
 
   const handleSignOut = () =>{
     logOut()
@@ -21,6 +22,10 @@ const Header = () => {
     })
     .catch(e=>console.error(e))
 
+  }
+
+  const handleToggle = ()=>{
+    setOpen(!open);
   }
   return (
     <Navbar
@@ -65,6 +70,7 @@ const Header = () => {
               Blog
             </Link>
           </Nav>
+
           <Nav>
             {/* <Link to="/login" className="me-2 login">
               Sign In
@@ -98,7 +104,14 @@ const Header = () => {
             }
             </Nav.Link>
 
-            <Link>Dark/light</Link>
+            <Link>
+            <Button onClick={handleToggle}>
+              {
+                open? "close" : "open"
+              }
+
+            </Button>
+            </Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

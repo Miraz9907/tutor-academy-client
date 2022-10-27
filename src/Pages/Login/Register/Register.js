@@ -80,12 +80,12 @@ const navigate = useNavigate()
             required
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
+        {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check 
           type="checkbox"
          
            label={<>Accept <Link to='/terms'>terms and conditions</Link></>} />
-        </Form.Group>
+        </Form.Group> */}
 
         <Button variant="primary" type="submit" >
           Register

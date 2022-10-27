@@ -100,27 +100,14 @@ const Login = () => {
         <Button onClick={handleGithub} variant="light" type="submit" className="fs-3">
           <FaGithub></FaGithub>
         </Button>
-        <p><small>Want to create an account <Link to='/register'>Register</Link></small></p>
+        <p><small>Want to create an account? <Link to='/register'>Register</Link></small></p>
 
         </div>
 
           <Form.Text className="text-danger">{error}</Form.Text>
         </Form>
 
-        {/* <div className='text-center'>
-        <p className="text-center">OR Sign in with</p>
-        <Button
-          onClick={handleGoogle}
-          variant="light"
-          type="submit"
-          className="me-4 fs-3"
-        >
-          <FaGoogle className="text-warning"></FaGoogle>
-        </Button>
-        <Button onClick={handleGithub} variant="light" type="submit" className="fs-3">
-          <FaGithub></FaGithub>
-        </Button>
-        </div> */}
+        
         
       </div>
     );

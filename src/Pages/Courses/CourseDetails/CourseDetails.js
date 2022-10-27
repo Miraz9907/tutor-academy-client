@@ -41,8 +41,8 @@ const CourseDetails = () => {
                     <Card.Title className="fw-bolder">{id}</Card.Title>
                     <Card.Text>{introduction}</Card.Text>
                   </Card.Body>
-                  <Link to={`courses/${id}`} variant="light" className="me-2 text-decoration-none text-center ">
-                    Go to premium
+                  <Link to={`courses/${id}`} variant="light" className=" text-center ">
+                    <Button variant="light" lassName="me-2 my-3 fw-semibold  " >Go to premium</Button>
                   </Link>
                 </Card>
               </Col>
