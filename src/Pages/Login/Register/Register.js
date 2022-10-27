@@ -5,12 +5,9 @@ import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
 
 const Register = () => {
-  const [ error, setError] = useState('');
+const [ error, setError] = useState('');
 const {createAUser, updateUser} = useContext(AuthContext);
 const navigate = useNavigate()
-
-
-
 
   const handleFromSubmit =(event) =>{
     event.preventDefault();
@@ -20,7 +17,6 @@ const navigate = useNavigate()
     const email = form.email.value;
     const password = form.password.value;
 
-    // console.log(name, photoURL, email, password);
     createAUser(email, password)
     .then(result => {
     const user = result?.user;
@@ -80,12 +76,6 @@ const navigate = useNavigate()
             required
           />
         </Form.Group>
-        {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check 
-          type="checkbox"
-         
-           label={<>Accept <Link to='/terms'>terms and conditions</Link></>} />
-        </Form.Group> */}
 
         <Button variant="primary" type="submit" >
           Register

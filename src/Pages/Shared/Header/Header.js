@@ -60,52 +60,57 @@ const Header = () => {
             >
               Home
             </NavLink>
-            <Link to="/course" className="mx-4 px-2 py-1 rounded nav-items">
+            <NavLink to="/course" className="mx-4 px-2 py-1 rounded nav-items {({ isActive }) => (isActive ? 'active' : 'inactive' ">
               Courses
-            </Link>
-            <Link to="/faq" className="mx-4 px-2 py-1 rounded nav-items">
+            </NavLink>
+            <NavLink to="/faq" className="mx-4 px-2 py-1 rounded nav-items {({ isActive }) => (isActive ? 'active' : 'inactive' ">
               FAQ
-            </Link>
-            <Link to="/blog" className="mx-4 px-2 py-1 rounded nav-items">
+            </NavLink>
+            <NavLink to="/blog" className="mx-4 px-2 py-1 rounded nav-items {({ isActive }) => (isActive ? 'active' : 'inactive' ">
               Blog
-            </Link>
+            </NavLink>
           </Nav>
 
           <Nav>
             
-            
-            <Nav.Link className="mx-4 px-2 py-1 rounded ">
-              {
-                user?.uid ? 
+            <div className="mx-4 px-2 py-1 rounded ">
+              {user?.uid ? (
                 <>
-                
-                <Button variant="dark" onClick={handleSignOut}><Link className="me-2 login" to='/login'>Log Out</Link></Button>
+                  <Button variant="dark" onClick={handleSignOut}>
+                    <Link className="me-2 login" to="/login">
+                      Log Out
+                    </Link>
+                  </Button>
                 </>
-
-                :
+              ) : (
                 <>
-                <Link className="me-2 login" to='/login'>Login</Link>
-                <Link className="me-2 login" to='/register'>Register</Link>
+                  <Link className="me-2 login" to="/login">
+                    Login
+                  </Link>
+                  <Link className="me-2 login" to="/register">
+                    Register
+                  </Link>
                 </>
-              }
-              
-            </Nav.Link>
-            <Nav.Link  className="mx-4 px-2 py-1 rounded">
-              {user?.photoURL? <Tippy content={user?.displayName}>
-              <Image style={{height: '40px'}} roundedCircle src={user.photoURL}></Image>
-              </Tippy>
-              :
-              <FaUserCircle className="fs-4 text-white"></FaUserCircle>
-            }
+              )}
+            </div>
+            <Nav.Link className="mx-4 px-2 py-1 rounded">
+              {user?.photoURL ? (
+                <Tippy content={user?.displayName}>
+                  <Image
+                    style={{ height: "40px" }}
+                    roundedCircle
+                    src={user.photoURL}
+                  ></Image>
+                </Tippy>
+              ) : (
+                <FaUserCircle className="fs-4 text-white"></FaUserCircle>
+              )}
             </Nav.Link>
 
             <Link>
-            <Button onClick={handleToggle}>
-              {
-                open? <FaMoon></FaMoon> : <FaSun></FaSun>
-              }
-
-            </Button>
+              <Button onClick={handleToggle}>
+                {open ? <FaMoon></FaMoon> : <FaSun></FaSun>}
+              </Button>
             </Link>
           </Nav>
         </Navbar.Collapse>

@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 
 const NotFound = () => {
     return (
-      <div className="d-flex flex-column justify-content-center align-items-center ">
+      <div className="d-flex flex-column h-100 justify-content-center align-items-center ">
         <div>
-          <h1 className="">OOPS!</h1>
+          <h1 className="text-danger fs-3 fw-semibold">OOPS!</h1>
         </div>
         <div>
-          <h1 className="">404!</h1>
+          <h1 className="text-danger">404!</h1>
         </div>
         <div>
           <h3 className="text-danger">Page Not Found</h3>

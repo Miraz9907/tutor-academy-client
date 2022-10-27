@@ -11,15 +11,11 @@ const Login = () => {
   const [error, setError] = useState('')
   const {googleLogin, signEmailPassword, githubLogin} = useContext(AuthContext);
 
-
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
   const navigate = useNavigate()
   const location = useLocation();
-
   const from = location?.state?.from?.pathname || '/';
-
-
 
   const handleLogin = (event) =>{
     event.preventDefault();
@@ -39,15 +35,13 @@ const Login = () => {
       console.error(e);
       setError(e.message);
     })
-
-
   }
   const handleGoogle = () =>{
     googleLogin(googleProvider)
     .then(result => {
       const user = result.user;
       console.log(user);
-      // navigate('/');
+      navigate(from, {replace:true});
       
     })
     .catch(error =>console.error(error))
@@ -59,7 +53,7 @@ const Login = () => {
     .then(result => {
       const user = result.user;
       console.log(user);
-      // navigate('/');
+      navigate(from, {replace:true});
     })
     .catch(error =>console.error(error))
 
@@ -87,30 +81,32 @@ const Login = () => {
             Login
           </Button>
 
-
-          
-
           <Form.Text className="text-danger">{error}</Form.Text>
         </Form>
-        <div className='text-center'>
-        <p className="text-center">OR Sign in with</p>
-        <Button
-          onClick={handleGoogle}
-          variant="light"
-          type="submit"
-          className="me-4 fs-3"
-        >
-          <FaGoogle className="text-warning"></FaGoogle>
-        </Button>
-        <Button onClick={handleGithub} variant="light" type="submit" className="fs-3">
-          <FaGithub></FaGithub>
-        </Button>
-        <p><small>Want to create an account? <Link to='/register'>Register</Link></small></p>
-
+        <div className="text-center">
+          <p className="text-center">OR Sign in with</p>
+          <Button
+            onClick={handleGoogle}
+            variant="light"
+            type="submit"
+            className="me-4 fs-3"
+          >
+            <FaGoogle className="text-warning"></FaGoogle>
+          </Button>
+          <Button
+            onClick={handleGithub}
+            variant="light"
+            type="submit"
+            className="fs-3"
+          >
+            <FaGithub></FaGithub>
+          </Button>
+          <p>
+            <small>
+              Want to create an account? <Link to="/register">Register</Link>
+            </small>
+          </p>
         </div>
-
-        
-        
       </div>
     );
 };

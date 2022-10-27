@@ -6,13 +6,10 @@ import "./Courses.css";
 
 const Courses = () => {
   const courses = useLoaderData();
-  // console.log(courses);
-
   return (
     <div>
-      <h2>all courses: {courses.length}</h2>
       <Container>
-        <h2 className="text-center mb-5">This is Course Page</h2>
+        <h2>Your desire courses is here.</h2>
         <Row className="mx-5">
           <Col lg="4" className="mt-3">
             {courses.map((course) => (
@@ -31,8 +28,9 @@ const Courses = () => {
 
           <Col lg="8">
             <h2 className="mb-2 text-dark text-center">
-              Wants to become a <span className="text-danger">Web developer.</span>{" "}
-              <span className="text-warning">Let's check out our cources</span>
+              Wants to become a{" "}
+              <span className="text-danger">Web developer.</span>{" "}
+              Let's check out our cources
             </h2>
             <div className="row g-3">
               {courses.map((course) => (
