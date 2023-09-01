@@ -6,14 +6,14 @@ export const AuthContext = createContext();
 const auth = getAuth(app);
 
 const AuthProvider = ({children}) => {
-    
     const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true);
 
-    const createAUser = (email, password)=>{
+    const createAUser = (email, password) =>{
         setLoading(true);
-        return createUserWithEmailAndPassword(auth, email,password)
+        return createUserWithEmailAndPassword(auth, email, password);
     }
+    
     const googleLogin = (provider) =>{
         setLoading(true);
         return signInWithPopup(auth, provider)

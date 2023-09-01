@@ -66,9 +66,6 @@ const Header = () => {
             <NavLink to="/faq" className="mx-4 px-2 py-1 rounded nav-items {({ isActive }) => (isActive ? 'active' : 'inactive' ">
               FAQ
             </NavLink>
-            <NavLink to="/blog" className="mx-4 px-2 py-1 rounded nav-items {({ isActive }) => (isActive ? 'active' : 'inactive' ">
-              Blog
-            </NavLink>
           </Nav>
 
           <Nav>

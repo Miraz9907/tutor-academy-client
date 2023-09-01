@@ -1,6 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../layout/Main";
-import Blog from "../../Pages/Blog/Blog";
 import CourseDetails from "../../Pages/Courses/CourseDetails/CourseDetails";
 import Courses from "../../Pages/Courses/Courses";
 import PremiumCourse from "../../Pages/Courses/PremiumCourse/PremiumCourse";
@@ -30,7 +29,6 @@ export const routes = createBrowserRouter([
         loader: () => fetch("https://tutor-academy-server.vercel.app/courses"),
         element: <Courses></Courses>,
       },
-
       {
         path: "/course/:id",
         element: <CourseDetails></CourseDetails>,
@@ -52,10 +50,6 @@ export const routes = createBrowserRouter([
       {
         path: "/faq",
         element: <FAQ></FAQ>,
-      },
-      {
-        path: "/blog",
-        element: <Blog></Blog>,
       },
       {
         path: "/login",
